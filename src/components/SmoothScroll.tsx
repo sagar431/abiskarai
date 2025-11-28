@@ -9,13 +9,12 @@ export function SmoothScroll() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.65, // Snappier response
-      easing: (t) => 1 - Math.pow(1 - t, 3.2), // Smooth but quick
+      duration: 0.65,
+      easing: (t) => 1 - Math.pow(1 - t, 3.2),
       lerp: 0.08,
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      smoothTouch: false,
       wheelMultiplier: 1,
       touchMultiplier: 1.1,
       infinite: false,
