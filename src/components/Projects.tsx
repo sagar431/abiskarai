@@ -5,30 +5,30 @@ import { SectionHeading } from "./SectionHeading";
 export function Projects() {
   return (
     <section id="projects" className="py-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Portfolio"
           title="Selected Work"
           description="Production systems we've built for agent orchestration, model training, and inference optimization."
         />
 
-        <div className="mt-16 space-y-8">
+        <div className="mt-12 space-y-6 sm:space-y-8">
           {projects.map((project, index) => (
             <article
               key={project.slug}
-              className="glass-card group relative overflow-hidden rounded-[28px] p-8 transition-transform duration-500 hover:-translate-y-1 lg:p-12"
+              className="glass-card group relative overflow-hidden rounded-[24px] p-6 sm:p-8 transition-transform duration-500 hover:-translate-y-1 lg:rounded-[28px] lg:p-12"
             >
               {/* Project number */}
-              <div className="absolute right-8 top-8 text-xs font-mono text-primary-500/50">
+              <div className="absolute right-4 top-4 sm:right-8 sm:top-8 text-xs font-mono text-primary-500/50">
                 [{String(index + 1).padStart(2, '0')}]
               </div>
 
-              <div className="grid gap-8 lg:grid-cols-12">
+              <div className="grid gap-6 sm:gap-8 lg:grid-cols-12">
                 {/* Left: Title and description */}
                 <div className="lg:col-span-5">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary-500 transition lg:text-3xl">
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary-500 transition sm:text-2xl lg:text-3xl">
                         {project.title}
                       </h3>
                       <p className="mt-2 text-sm text-primary-500">{project.tagline}</p>

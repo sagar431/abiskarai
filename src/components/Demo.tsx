@@ -3,15 +3,15 @@ import { SectionHeading } from "./SectionHeading";
 export function Demo() {
   return (
     <section id="demo" className="py-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Live Demo"
           title="Autonomous Research AI Agent"
           description="Watch our AI agent in action - intelligent research, reasoning, and autonomous task execution."
         />
 
-        <div className="mt-16">
-          <div className="glass-card relative mx-auto max-w-5xl overflow-hidden rounded-2xl p-4 shadow-2xl">
+        <div className="mt-12">
+          <div className="glass-card relative mx-auto max-w-5xl overflow-hidden rounded-2xl p-2 sm:p-4 shadow-2xl">
             <div className="relative overflow-hidden rounded-xl pb-[56.25%]">
               <iframe
                 src="https://www.youtube.com/embed/RZYxHs6w0Qg"

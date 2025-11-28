@@ -3,15 +3,15 @@ import { agency } from "@/data/agency";
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contact" className="py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="glass-divider border-t pt-16">
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold text-foreground md:text-5xl">
+              <h2 className="text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Let's build something.
               </h2>
-              <p className="max-w-2xl text-xl text-muted">
+              <p className="max-w-2xl text-lg sm:text-xl text-muted">
                 Ready to ship production AI? Get in touch and we'll respond within 24 hours.
               </p>
             </div>
