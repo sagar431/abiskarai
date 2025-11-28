@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "We ran into a problem reaching Gemini. Please try again shortly or contact hello@absiskarai.ai.",
+          "We ran into a problem reaching Gemini. Please try again shortly or contact sagar@abiskarai.com.",
       },
       { status: 500 },
     );

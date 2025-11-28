@@ -129,7 +129,7 @@ export function ChatWidget() {
       setMessages((prev) => [
         ...prev,
         createBlankMessage(
-          "I'm having trouble reaching Gemini right now. Please try again in a moment or drop us an email at hello@absiskarai.ai.",
+          "I'm having trouble reaching Gemini right now. Please try again in a moment or drop us an email at sagar@abiskarai.com.",
           "assistant",
         ),
       ]);

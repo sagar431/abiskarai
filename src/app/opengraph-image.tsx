@@ -35,7 +35,7 @@ export default function OpengraphImage() {
           </p>
         </div>
         <div style={{ display: "flex", gap: 16, fontSize: 24, color: "rgba(148,163,184,0.9)" }}>
-          <span>absiskarai.ai</span>
+          <span>abiskarai.com</span>
           <span style={{ color: "rgba(96,165,250,0.9)" }}>•</span>
           <span>Agentic Portfolio Studio</span>
         </div>

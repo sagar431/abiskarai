@@ -45,7 +45,7 @@ export const agency = {
     },
   ],
   contact: {
-    email: "hello@absiskarai.ai",
+    email: "sagar@abiskarai.com",
     calendly: "https://calendly.com/abiskarai/15min",
   },
 };
