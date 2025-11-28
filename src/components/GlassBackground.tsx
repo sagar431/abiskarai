@@ -9,7 +9,7 @@ export function GlassBackground() {
           width: "36rem",
           height: "36rem",
           background:
-            "radial-gradient(circle at 30% 30%, rgba(255, 140, 60, 0.75), rgba(255, 140, 60, 0))",
+            "radial-gradient(circle at 30% 30%, rgba(255, 140, 60, 0.25), rgba(255, 140, 60, 0))",
           animationDelay: "0s",
         }}
         aria-hidden="true"
@@ -22,7 +22,7 @@ export function GlassBackground() {
           width: "32rem",
           height: "32rem",
           background:
-            "radial-gradient(circle at 70% 30%, rgba(90, 125, 255, 0.7), rgba(90, 125, 255, 0))",
+            "radial-gradient(circle at 70% 30%, rgba(90, 125, 255, 0.2), rgba(90, 125, 255, 0))",
           animationDelay: "4s",
         }}
         aria-hidden="true"
@@ -36,7 +36,7 @@ export function GlassBackground() {
           height: "40rem",
           transform: "translateX(-50%)",
           background:
-            "radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0))",
+            "radial-gradient(circle at 50% 60%, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
           animationDelay: "8s",
         }}
         aria-hidden="true"

@@ -88,6 +88,11 @@
     z-index: -2;
   }
 
+  /* Ensure touch action for better mobile scrolling */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   /* Removed grain texture for better scroll performance */
 }
 
@@ -157,6 +162,8 @@
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    /* Ensure minimum touch target size on mobile */
+    min-height: 44px;
   }
 
   .glass-button:hover {
@@ -182,11 +189,13 @@
     border-radius: 9999px;
     color: white;
     background: rgba(255, 255, 255, 0.03);
-    box-shadow: 
+    box-shadow:
       inset 0 0 0 1px rgba(255, 255, 255, 0.2),
       0 4px 12px rgba(0,0,0,0.2);
     backdrop-filter: blur(12px);
     transition: all 0.3s ease;
+    /* Ensure minimum touch target size on mobile */
+    min-height: 44px;
   }
 
   .glass-outline:hover {
@@ -197,9 +206,14 @@
     transform: translateY(-2px);
   }
 
+  .glass-header {
+    background: rgba(12, 12, 20, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
   .glass-nav {
-    display: inline-flex;
-    align-items: center;
     padding: 6px 8px;
     border-radius: 9999px;
     background: rgba(20, 20, 30, 0.6);
@@ -299,6 +313,14 @@
     background: #4060ff;
   }
   
+  .glass-ring {
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 106, 0, 0.1) 0%, transparent 70%);
+    border: 1px solid rgba(255, 106, 0, 0.15);
+    box-shadow: 0 0 60px rgba(255, 106, 0, 0.2);
+    pointer-events: none;
+  }
+
   .glass-mesh {
     display: none; /* Disabled for performance */
   }
@@ -317,6 +339,47 @@
 @keyframes float-slow {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -10px, 0); }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  html {
+    /* Better mobile scroll behavior */
+    scroll-padding-top: 60px;
+  }
+
+  body {
+    /* Improve text rendering on mobile */
+    text-rendering: optimizeLegibility;
+  }
+
+  .glass-shell {
+    border-radius: 24px;
+  }
+
+  .glass-card {
+    border-radius: 20px;
+  }
+
+  /* Better mobile touch targets */
+  .glass-nav-item {
+    padding: 12px 22px;
+    font-size: 0.9375rem;
+  }
+
+  /* Optimize glass effects for mobile performance */
+  .glass-glow {
+    display: none;
+  }
+
+  .glass-ring {
+    opacity: 0.6;
+  }
+
+  /* Better mobile section spacing */
+  section {
+    scroll-margin-top: 80px;
+  }
 }
 
 /* Reduce motion for users who prefer it */

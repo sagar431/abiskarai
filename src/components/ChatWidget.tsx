@@ -158,11 +158,11 @@ export function ChatWidget() {
   // Actually, it's better to show something. The useEffect handles the update.
 
   return (
-    <div className="fixed bottom-6 right-6 z-[90]">
+    <div className="fixed bottom-4 right-4 z-[90] sm:bottom-6 sm:right-6">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="glass-button flex h-14 w-14 items-center justify-center rounded-full text-base font-bold text-black shadow-lg shadow-primary-500/30 hover:scale-105"
+        className="glass-button flex h-12 w-12 items-center justify-center rounded-full text-base font-bold text-black shadow-lg shadow-primary-500/30 hover:scale-105 sm:h-14 sm:w-14"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? "✕" : "AI"}
@@ -196,19 +196,19 @@ export function ChatWidget() {
                   style={message.role === "assistant" ? { backdropFilter: 'blur(20px) saturate(150%)' } : {}}
                 >
                   {message.role === "assistant" ? (
-                     <div className="markdown-content space-y-2">
-                       <ReactMarkdown
-                         components={{
-                           a: ({ node, ...props }) => <a {...props} className="text-primary-300 hover:underline underline-offset-2" target="_blank" rel="noopener noreferrer" />,
-                           ul: ({ node, ...props }) => <ul {...props} className="list-disc pl-4 space-y-1" />,
-                           ol: ({ node, ...props }) => <ol {...props} className="list-decimal pl-4 space-y-1" />,
-                           p: ({ node, ...props }) => <p {...props} className="mb-2 last:mb-0" />,
-                           code: ({ node, ...props }) => <code {...props} className="bg-white/10 rounded px-1 py-0.5 font-mono text-xs" />,
-                         }}
-                       >
-                         {message.content}
-                       </ReactMarkdown>
-                     </div>
+                    <div className="markdown-content space-y-2">
+                      <ReactMarkdown
+                        components={{
+                          a: ({ node, ref, ...props }: any) => <a {...props} className="text-primary-300 hover:underline underline-offset-2" target="_blank" rel="noopener noreferrer" />,
+                          ul: ({ node, ref, ...props }: any) => <ul {...props} className="list-disc pl-4 space-y-1" />,
+                          ol: ({ node, ref, ...props }: any) => <ol {...props} className="list-decimal pl-4 space-y-1" />,
+                          p: ({ node, ref, ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
+                          code: ({ node, ref, ...props }: any) => <code {...props} className="bg-white/10 rounded px-1 py-0.5 font-mono text-xs" />,
+                        }}
+                      >
+                        {message.content}
+                      </ReactMarkdown>
+                    </div>
                   ) : (
                     message.content
                   )}
@@ -223,8 +223,8 @@ export function ChatWidget() {
                 <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-muted">
                   <div className="flex items-center gap-2">
                     <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500"></div>
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{animationDelay: '0.2s'}}></div>
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{animationDelay: '0.4s'}}></div>
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{ animationDelay: '0.4s' }}></div>
                   </div>
                 </div>
               </div>

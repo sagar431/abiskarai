@@ -45,7 +45,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="glass-nav hidden gap-2 md:flex">
+        <nav className="glass-nav hidden items-center gap-2 md:inline-flex">
           {navItems.map((item, index) => (
             <Link
               key={item.href}

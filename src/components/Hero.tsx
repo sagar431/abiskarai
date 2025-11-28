@@ -11,7 +11,7 @@ const heroStats = [
 
 export function Hero() {
   return (
-    <section className="relative py-20 sm:py-28 lg:py-36">
+    <section className="relative py-16 sm:py-28 lg:py-36">
       <div
         className="absolute inset-x-0 top-[-100px] sm:top-[-160px] -z-10 flex justify-center"
         aria-hidden="true"
@@ -20,7 +20,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="glass-shell relative w-full max-w-full overflow-hidden px-5 py-8 sm:px-12 sm:py-16">
+        <div className="glass-shell relative w-full max-w-full overflow-hidden px-6 py-10 sm:px-12 sm:py-16">
           {/* Simplified glows for mobile */}
           <div
             className="glass-glow glass-glow--primary animate-float-slow hidden sm:block"
@@ -46,32 +46,32 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="glass-pill w-fit text-[10px] sm:text-xs font-medium text-primary-100/90">
+              <div className="glass-pill w-fit text-[11px] sm:text-xs font-medium text-primary-100/90">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-500 opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
                 </span>
-                Available for new projects
+                AVAILABLE FOR NEW PROJECTS
               </div>
 
-              <h1 className="section-heading max-w-4xl text-balance text-[2rem] font-semibold leading-[1.1] tracking-tight text-transparent sm:text-5xl lg:text-7xl bg-gradient-to-r from-white via-white/80 to-primary-200/80 bg-clip-text">
+              <h1 className="section-heading max-w-4xl text-balance text-[2.5rem] font-semibold leading-[1.1] tracking-tight text-transparent sm:text-5xl lg:text-7xl bg-gradient-to-r from-white via-white/80 to-primary-200/80 bg-clip-text">
                 Build AI agents that ship.
               </h1>
 
-              <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg lg:text-xl">
+              <p className="max-w-2xl text-lg leading-relaxed text-muted sm:text-lg lg:text-xl">
                 We help businesses automate repetitive tasks, respond faster to customers, and save hours every day using AI. Real products. Real execution. Zero fluff.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 pt-2 sm:gap-4 lg:gap-6">
+              <div className="flex flex-wrap items-center gap-3 pt-4 sm:gap-4 lg:gap-6">
                 <Link
                   href="#projects"
-                  className="glass-button inline-flex items-center justify-center text-xs sm:text-sm font-semibold px-5 py-3 sm:px-6 sm:py-3"
+                  className="glass-button inline-flex items-center justify-center text-sm sm:text-sm font-semibold px-5 py-3 sm:px-6 sm:py-3.5"
                 >
                   View Work
                 </Link>
                 <Link
                   href="#contact"
-                  className="glass-outline inline-flex text-xs sm:text-sm font-semibold px-5 py-3 sm:px-6 sm:py-3"
+                  className="glass-outline inline-flex text-sm sm:text-sm font-semibold px-5 py-3 sm:px-6 sm:py-3.5"
                 >
                   Get in Touch
                 </Link>
