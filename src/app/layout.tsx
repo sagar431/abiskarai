@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { GlassBackground } from "@/components/GlassBackground";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { FloatingCTA } from "@/components/FloatingCTA";
+import { CursorTrail } from "@/components/CursorTrail";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,26 +21,29 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://absiskarai.com"),
   title: {
-    default: "AbiskarAI – Agentic portfolio studio",
+    default: "AbiskarAI – Websites, WhatsApp Bots & AI Agents",
     template: "%s · AbiskarAI",
   },
   description:
-    "AbiskarAI designs, fine-tunes, and deploys Gemini-powered agents inspired by S16 Share orchestration.",
+    "AbiskarAI builds conversion-focused websites, WhatsApp automation bots, and custom AI agents for businesses. Real products, real execution.",
   openGraph: {
-    title: "AbiskarAI – Agentic portfolio studio",
+    title: "AbiskarAI – Websites, WhatsApp Bots & AI Agents",
     description:
-      "AI agency building Gemini-backed automation agents, featuring the Multimodal Gemma-270M case study.",
+      "AbiskarAI builds conversion-focused websites, WhatsApp automation bots, and custom AI agents for businesses. Real products, real execution.",
     type: "website",
     url: "https://absiskarai.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AbiskarAI – Agentic portfolio studio",
+    title: "AbiskarAI – Websites, WhatsApp Bots & AI Agents",
     description:
-      "We build AI agents that reason, execute, and deliver measurable outcomes.",
+      "AbiskarAI builds conversion-focused websites, WhatsApp automation bots, and custom AI agents for businesses. Real products, real execution.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
   },
 };
 
@@ -52,11 +58,11 @@ export default function RootLayout({
     "name": "AbiskarAI",
     "url": "https://absiskarai.com",
     "description": "AbiskarAI designs, fine-tunes, and deploys Gemini-powered agents inspired by S16 Share orchestration.",
-    "logo": "https://absiskarai.com/favicon.ico"
+    "logo": "https://absiskarai.com/favicon.svg"
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -65,6 +71,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <SmoothScroll />
+        <ScrollProgress />
+        <CursorTrail />
+        <FloatingCTA />
         <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
           <GlassBackground />
           <div className="relative z-10 flex min-h-screen flex-col gap-6">

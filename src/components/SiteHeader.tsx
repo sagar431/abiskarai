@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 
 const navItems = [
   { href: "#services", label: "Services" },
+  { href: "#products", label: "Products" },
   { href: "#projects", label: "Work" },
-  { href: "#demo", label: "Demo" },
   { href: "#process", label: "Process" },
   { href: "#contact", label: "Contact" },
 ];
@@ -85,66 +85,76 @@ export function SiteHeader() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="relative z-[101] flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="relative z-[101] flex h-10 w-10 flex-col items-center justify-center md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          <motion.span
-            animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="h-0.5 w-6 bg-foreground"
-          />
-          <motion.span
-            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="h-0.5 w-6 bg-foreground"
-          />
-          <motion.span
-            animate={isMobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="h-0.5 w-6 bg-foreground"
-          />
+          {isMobileMenuOpen ? (
+            <svg
+              className="h-8 w-8 text-foreground"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <div className="flex flex-col gap-1.5">
+              <span className="h-0.5 w-6 bg-foreground" />
+              <span className="h-0.5 w-6 bg-foreground" />
+              <span className="h-0.5 w-6 bg-foreground" />
+            </div>
+          )}
         </button>
 
         {/* Mobile Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
-              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-background/90 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[99] bg-[#0a0a0f] md:hidden"
             >
-              <nav className="flex flex-col items-center gap-8 text-center">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ delay: 0.1 + index * 0.05 }}
-                  >
-                    <Link
-                      href={item.href}
-                      className="text-3xl font-bold text-foreground transition hover:text-primary-500"
-                      onClick={() => setIsMobileMenuOpen(false)}
+              <div className="flex h-full flex-col items-center justify-center">
+                <nav className="flex flex-col items-center gap-12 text-center">
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ delay: 0.1 + index * 0.05 }}
                     >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={item.href}
+                        className="text-4xl font-bold text-white transition hover:text-primary-500"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ delay: 0.4 }}
+                  className="absolute bottom-12 left-1/2 -translate-x-1/2"
                 >
                   <Link
                     href="#contact"
-                    className="glass-button mt-4 px-8 py-3 text-lg"
+                    className="inline-flex items-center justify-center rounded-full bg-primary-500 px-20 py-4 text-lg font-bold text-white shadow-[0_0_30px_rgba(255,106,0,0.4)] transition hover:bg-primary-600 hover:shadow-[0_0_40px_rgba(255,106,0,0.6)]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Hire Us
                   </Link>
                 </motion.div>
-              </nav>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

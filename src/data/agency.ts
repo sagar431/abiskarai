@@ -9,19 +9,19 @@ export const agency = {
   ],
   services: [
     {
-      title: "AI Strategy & Quick Wins",
+      title: "Landing Pages & Digital Presence",
       description:
-        "We identify where AI can save you time and money, then build a working prototype in weeks to prove it works.",
+        "We design and build fast, modern websites and landing pages that represent your brand professionally — optimised for conversions and ready to go live in weeks, not months.",
     },
     {
-      title: "Custom AI Solutions",
+      title: "WhatsApp Bot Integration",
       description:
-        "Get AI trained specifically for your business—whether it's answering customer questions, processing documents, or automating workflows.",
+        "Automate your customer conversations with a WhatsApp bot that answers FAQs, qualifies leads, books appointments, and follows up — all without you lifting a finger.",
     },
     {
-      title: "Launch & Support",
+      title: "Custom AI Agents",
       description:
-        "We deploy your AI system, monitor its performance, and continuously improve it based on real-world results.",
+        "We build AI agents that handle your repetitive internal tasks: processing documents, responding to enquiries, extracting data, and triggering actions across your tools automatically.",
     },
   ],
   process: [

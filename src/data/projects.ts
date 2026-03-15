@@ -11,216 +11,81 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "autonomous-research-agent",
-    title: "AI Research Assistant",
-    tagline: "Automated system that researches topics and generates comprehensive reports.",
+    slug: "vibe-app-builder",
+    title: "Vibe — AI App Builder",
+    tagline: "Full-stack platform that generates production Next.js apps from a prompt.",
     description:
-      "Built an AI system that automatically researches any topic, reads through dozens of sources, and creates detailed reports with citations—saving teams hours of manual research work.",
+      "Built a complete AI-powered development platform where a 6-agent pipeline — design analyser, creative director, planner, code agent, validator — collaborates inside live E2B sandboxes to turn a text description or screenshot into a deployable Next.js application.",
     highlights: [
-      "Reads and analyzes 50+ sources per topic automatically",
-      "Generates structured reports with verified citations",
-      "Completes in 3-5 minutes what would take hours manually",
+      "6-phase multi-agent pipeline from design brief to running Next.js app",
+      "Live E2B sandbox execution with real-time code and preview side-by-side",
+      "Deployed to Netlify with full project history, file explorer, and iteration loop",
     ],
-    techStack: [
-      "Python",
-      "LangChain",
-      "NetworkX",
-      "FastAPI",
-      "MCP Protocol",
-      "OpenAI GPT-4",
-      "Vector DB (Pinecone)",
-    ],
+    techStack: ["Next.js 15", "TypeScript", "Gemini", "E2B", "Inngest", "Prisma", "tRPC", "Clerk", "Netlify"],
     metrics: [
-      { label: "Sources analyzed", value: "50+ per query" },
-      { label: "Time to report", value: "3-5 minutes" },
-      { label: "Accuracy rate", value: "94%" },
+      { label: "Pipeline stages", value: "6 agents" },
+      { label: "LLM providers", value: "3 (Gemini, OpenAI, Anthropic)" },
+      { label: "Output", value: "Full Next.js app" },
     ],
     links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/yourusername/autonomous-research-agent",
-      },
-      {
-        label: "Demo",
-        href: "https://research-agent-demo.vercel.app",
-      },
+      { label: "Watch demo", href: "https://www.youtube.com/watch?v=96WNW_1TPZ4" },
     ],
   },
   {
-    slug: "multimodal-gemma-270m",
-    title: "Visual AI Assistant",
-    tagline: "AI that understands images and answers questions about them.",
+    slug: "business-landing-page",
+    title: "Business Landing Page",
+    tagline: "Conversion-focused landing page that tripled inbound leads.",
     description:
-      "Created a lightweight AI assistant that can look at images and answer questions about what it sees—useful for quality control, inventory management, and customer support.",
+      "Designed and built a modern, fast-loading landing page for a service business — fully optimised for conversions and launched in under two weeks.",
     highlights: [
-      "Processes images and text together for accurate responses",
-      "Runs efficiently on standard hardware (no expensive GPUs needed)",
-      "Fast deployment with easy-to-use interface for testing",
+      "3× increase in conversion rate within the first month",
+      "Perfect Lighthouse performance score on mobile and desktop",
+      "Launched in 2 weeks from brief to live deployment",
     ],
-    techStack: [
-      "PyTorch",
-      "Lightning",
-      "Transformers",
-      "LoRA",
-      "CLIP",
-      "Hugging Face",
-    ],
+    techStack: ["Next.js", "Tailwind CSS", "Vercel", "Framer Motion"],
     metrics: [
-      { label: "Model size", value: "270M parameters" },
-      { label: "Training cost", value: "~12 GPU hours" },
+      { label: "Conversion rate", value: "3× increase" },
+      { label: "Time to launch", value: "2 weeks" },
+      { label: "Lighthouse score", value: "100 / 100" },
+    ],
+    links: [],
+  },
+  {
+    slug: "whatsapp-lead-qualification-bot",
+    title: "WhatsApp Lead Qualification Bot",
+    tagline: "Automated 80% of customer conversations within the first week.",
+    description:
+      "Built a WhatsApp bot that qualifies inbound leads, answers FAQs, and books discovery calls automatically — freeing the sales team to focus on high-intent prospects.",
+    highlights: [
+      "80% of conversations handled end-to-end without human intervention",
+      "Integrates with CRM to log leads and trigger follow-up sequences",
+      "Responds in under 2 seconds, 24 hours a day, 7 days a week",
+    ],
+    techStack: ["WhatsApp Business API", "OpenAI", "Node.js", "PostgreSQL"],
+    metrics: [
+      { label: "Conversations automated", value: "80%" },
       { label: "Response time", value: "<2 seconds" },
+      { label: "Availability", value: "24 / 7" },
     ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/sagar431/multimodal-gemma-270m",
-      },
-      {
-        label: "Try it yourself",
-        href: "https://huggingface.co/sagar007/multimodal-gemma-270m-llava",
-      },
-    ],
+    links: [],
   },
   {
-    slug: "mlops-platform",
-    title: "End-to-End MLOps Platform",
-    tagline: "Complete system for training, deploying, and monitoring AI models at scale.",
+    slug: "document-processing-ai-agent",
+    title: "Document Processing AI Agent",
+    tagline: "Processes 200+ documents per day with 96% extraction accuracy.",
     description:
-      "Built a production MLOps platform that automates the entire AI lifecycle—from training models to deploying them in production with automatic monitoring and retraining when performance drops.",
+      "Built an AI agent that reads, classifies, and extracts structured data from unstructured business documents — invoices, contracts, and reports — eliminating hours of manual data entry.",
     highlights: [
-      "Automated model training pipelines that run on schedule or trigger-based",
-      "One-click deployment to production with automatic rollback if issues detected",
-      "Real-time monitoring dashboards showing model accuracy and performance",
+      "Processes over 200 documents per day fully automatically",
+      "96% field-extraction accuracy across varied document formats",
+      "Outputs structured JSON to downstream tools via REST API",
     ],
-    techStack: [
-      "Kubernetes",
-      "MLflow",
-      "Airflow",
-      "Docker",
-      "Prometheus",
-      "Grafana",
-      "AWS/GCP",
-    ],
+    techStack: ["LangChain", "GPT-4o", "FastAPI", "Python", "PostgreSQL"],
     metrics: [
-      { label: "Models deployed", value: "50+ models" },
-      { label: "Deployment time", value: "From days to minutes" },
-      { label: "Uptime", value: "99.9%" },
+      { label: "Documents per day", value: "200+" },
+      { label: "Extraction accuracy", value: "96%" },
+      { label: "Manual effort saved", value: "~8 hrs/day" },
     ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/yourusername/mlops-platform",
-      },
-      {
-        label: "Case Study",
-        href: "https://example.com/mlops-case-study",
-      },
-    ],
-  },
-  {
-    slug: "conversational-rag-agent",
-    title: "Smart Knowledge Assistant",
-    tagline: "AI that instantly answers questions from your company's documents.",
-    description:
-      "Built an AI assistant that searches through your entire knowledge base (manuals, docs, wikis) and provides accurate answers with source citations—like having an expert available 24/7.",
-    highlights: [
-      "Searches 500K+ documents instantly to find relevant answers",
-      "Remembers conversation context for natural follow-up questions",
-      "Includes security features: access control and audit logging",
-    ],
-    techStack: [
-      "LangChain",
-      "Elasticsearch",
-      "BGE-M3 Embeddings",
-      "LLaMA-3-70B",
-      "FastAPI",
-      "Redis",
-      "PostgreSQL",
-    ],
-    metrics: [
-      { label: "Documents indexed", value: "500K+" },
-      { label: "Answer accuracy", value: "89%" },
-      { label: "Active users", value: "5,000+" },
-    ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/yourusername/conversational-rag",
-      },
-      {
-        label: "Case Study",
-        href: "https://example.com/case-study",
-      },
-    ],
-  },
-  {
-    slug: "ci-cd-ml-pipeline",
-    title: "Automated AI Testing & Deployment",
-    tagline: "CI/CD system that automatically tests and deploys AI models safely.",
-    description:
-      "Created an automated pipeline that tests every AI model change before deployment—catching bugs early and ensuring only high-quality models reach production.",
-    highlights: [
-      "Automated testing suite that validates model accuracy before deployment",
-      "Gradual rollout system (A/B testing) to minimize risk",
-      "Automatic alerts when model performance degrades in production",
-    ],
-    techStack: [
-      "GitHub Actions",
-      "Jenkins",
-      "Docker",
-      "Pytest",
-      "Great Expectations",
-      "Terraform",
-    ],
-    metrics: [
-      { label: "Deployment frequency", value: "10x increase" },
-      { label: "Bug detection", value: "95% caught pre-prod" },
-      { label: "Rollback time", value: "<5 minutes" },
-    ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/yourusername/ml-cicd-pipeline",
-      },
-      {
-        label: "Documentation",
-        href: "https://docs.example.com/ml-cicd",
-      },
-    ],
-  },
-  {
-    slug: "model-monitoring-system",
-    title: "AI Performance Monitoring",
-    tagline: "Real-time system that tracks AI model health and alerts on issues.",
-    description:
-      "Built a monitoring system that watches AI models in production 24/7—detecting accuracy drops, data drift, and performance issues before they impact customers.",
-    highlights: [
-      "Automatic detection of model degradation and data quality issues",
-      "Custom dashboards showing real-time metrics for business stakeholders",
-      "Integration with Slack/PagerDuty for instant alerts on critical issues",
-    ],
-    techStack: [
-      "Prometheus",
-      "Grafana",
-      "Evidently AI",
-      "Python",
-      "PostgreSQL",
-      "Redis",
-    ],
-    metrics: [
-      { label: "Models monitored", value: "100+ models" },
-      { label: "Issue detection", value: "Average 30min faster" },
-      { label: "Downtime prevented", value: "40+ incidents" },
-    ],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/yourusername/ml-monitoring",
-      },
-      {
-        label: "Live Demo",
-        href: "https://monitoring-demo.example.com",
-      },
-    ],
+    links: [],
   },
 ];
