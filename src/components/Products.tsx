@@ -102,7 +102,8 @@ export function Products() {
             title="See It in Action"
             description="Live demos of what we build — AI agents, automated research tools, and web generation."
           />
-          <div className="flex shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.04] p-1">
+          {/* Hide coverflow toggle on mobile — coverflow needs desktop width */}
+          <div className="hidden sm:flex shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.04] p-1">
             <button
               onClick={() => setView("grid")}
               className={`flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-all ${
@@ -135,7 +136,7 @@ export function Products() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.25 }}
-                className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4"
+                className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4"
               >
                 {products.map((product) => (
                   <article
@@ -179,7 +180,6 @@ export function Products() {
                   activeIndex={activeIndex}
                   onActiveChange={setActiveIndex}
                   cardWidth={500}
-                  containerHeight={490}
                 />
               </motion.div>
             )}

@@ -33,7 +33,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <p className="mt-1 text-sm text-primary-400">{project.tagline}</p>
       <p className="mt-3 text-sm leading-relaxed text-white/50">{project.description}</p>
       <div className="my-5 h-px bg-white/[0.06]" />
-      <div className="mb-5 grid grid-cols-3 gap-3">
+      <div className="mb-5 grid grid-cols-3 gap-2 sm:gap-3">
         {project.metrics.map((m) => (
           <div key={m.label} className="rounded-xl bg-white/[0.04] px-3 py-3 text-center">
             <div className="text-lg font-bold text-primary-400">{m.value}</div>
@@ -101,7 +101,7 @@ export function Projects() {
             title="Results We've Delivered"
             description="Real projects across web, automation, and AI — with measurable outcomes."
           />
-          <div className="flex shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.04] p-1">
+          <div className="hidden sm:flex shrink-0 items-center gap-1 rounded-xl border border-white/10 bg-white/[0.04] p-1">
             <button
               onClick={() => setView("list")}
               className={`flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-all ${
@@ -167,7 +167,7 @@ export function Projects() {
                         </div>
                       </div>
                       <div className="lg:col-span-7">
-                        <div className="grid gap-8 sm:grid-cols-2">
+                        <div className="grid gap-8 md:grid-cols-2">
                           <div className="space-y-4">
                             <h4 className="text-xs font-mono uppercase tracking-wider text-muted">Key Metrics</h4>
                             <div className="space-y-3">
@@ -217,7 +217,6 @@ export function Projects() {
                   activeIndex={activeIndex}
                   onActiveChange={setActiveIndex}
                   cardWidth={520}
-                  containerHeight={520}
                 />
               </motion.div>
             )}
