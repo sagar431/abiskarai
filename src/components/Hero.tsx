@@ -15,7 +15,7 @@ const headingWords = ["Your", "digital", "presence,", "powered", "by", "AI."];
 
 const container = {
   hidden: { opacity: 0 },
-  visible: (i = 1) => ({
+  visible: (_i = 1) => ({
     opacity: 1,
     transition: { staggerChildren: 0.04, delayChildren: 0.1 },
   }),

@@ -199,11 +199,16 @@ export function ChatWidget() {
                     <div className="markdown-content space-y-2">
                       <ReactMarkdown
                         components={{
-                          a: ({ node, ref, ...props }: any) => <a {...props} className="text-primary-300 hover:underline underline-offset-2" target="_blank" rel="noopener noreferrer" />,
-                          ul: ({ node, ref, ...props }: any) => <ul {...props} className="list-disc pl-4 space-y-1" />,
-                          ol: ({ node, ref, ...props }: any) => <ol {...props} className="list-decimal pl-4 space-y-1" />,
-                          p: ({ node, ref, ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
-                          code: ({ node, ref, ...props }: any) => <code {...props} className="bg-white/10 rounded px-1 py-0.5 font-mono text-xs" />,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          a: ({ ...props }: any) => <a {...props} className="text-primary-300 hover:underline underline-offset-2" target="_blank" rel="noopener noreferrer" />,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          ul: ({ ...props }: any) => <ul {...props} className="list-disc pl-4 space-y-1" />,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          ol: ({ ...props }: any) => <ol {...props} className="list-decimal pl-4 space-y-1" />,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          p: ({ ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          code: ({ ...props }: any) => <code {...props} className="bg-white/10 rounded px-1 py-0.5 font-mono text-xs" />,
                         }}
                       >
                         {message.content}
