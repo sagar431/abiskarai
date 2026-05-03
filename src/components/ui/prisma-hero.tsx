@@ -91,18 +91,10 @@ export const WordsPullUpMultiStyle = ({
   );
 };
 
-const navItems = [
-  { label: "Services", href: "#services" },
-  { label: "Systems", href: "#products" },
-  { label: "Projects", href: "#projects" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
-];
-
 export function PrismaHero() {
   return (
-    <section className="min-h-screen w-full bg-background p-3 sm:p-5 lg:p-7">
-      <div className="relative min-h-[calc(100vh-1.5rem)] w-full overflow-hidden rounded-2xl bg-[#050505] md:min-h-[calc(100vh-2.5rem)] md:rounded-[2rem] lg:min-h-[calc(100vh-3.5rem)]">
+    <section className="w-full bg-background p-2 sm:p-5 lg:p-7">
+      <div className="relative min-h-[calc(100svh-120px)] w-full overflow-hidden rounded-2xl bg-[#050505] sm:min-h-[calc(100vh-2.5rem)] md:rounded-[2rem] lg:min-h-[calc(100vh-3.5rem)]">
         {/* Spotlight effect */}
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
@@ -112,7 +104,7 @@ export function PrismaHero() {
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.45] mix-blend-overlay" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_68%_30%,rgba(225,224,204,0.12),transparent_25%),linear-gradient(180deg,rgba(5,5,5,0.28),rgba(5,5,5,0.72)_58%,rgba(5,5,5,0.94))]" />
 
-        {/* 3D Spline Scene - desktop only (skipped on mobile for performance) */}
+        {/* 3D Spline Scene - desktop only */}
         <div className="absolute right-0 top-0 hidden h-full w-[55%] lg:block">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
@@ -120,51 +112,41 @@ export function PrismaHero() {
           />
         </div>
 
-        {/* Logo */}
-        <div className="absolute left-6 top-6 z-20 flex items-center gap-3 text-primary sm:left-10 sm:top-9">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/25 font-mono text-xs font-bold">
-            AI
-          </div>
-          <span className="text-xl font-bold tracking-[-0.04em] sm:text-2xl">AbiskarAI</span>
-        </div>
-
-        {/* Navigation */}
-        <nav className="absolute left-1/2 top-0 z-20 hidden -translate-x-1/2 md:block">
-          <div className="flex items-center gap-8 rounded-b-3xl bg-black px-8 py-4 lg:gap-14">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm text-primary/75 transition-colors hover:text-primary"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </nav>
-
-        {/* Left content — all text stays on the left half, away from the 3D scene */}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end px-5 pb-5 sm:px-8 md:px-10 lg:w-[50%]">
-          <div className="mb-6 hidden gap-8 font-mono text-xs uppercase tracking-[0.12em] text-primary/45 sm:flex">
+        {/* Mobile: vertically centered content layout */}
+        <div className="relative z-10 flex min-h-[calc(100svh-120px)] flex-col justify-center px-5 py-12 sm:min-h-[calc(100vh-2.5rem)] sm:justify-end sm:px-8 sm:pb-8 md:px-10 md:pb-10 lg:min-h-[calc(100vh-3.5rem)] lg:w-[50%]">
+          {/* Service tags — hidden on mobile */}
+          <div className="mb-4 hidden gap-8 font-mono text-xs uppercase tracking-[0.12em] text-primary/45 sm:flex sm:mb-6">
             <span>Websites</span>
             <span>WhatsApp Bots</span>
             <span>AI Agents</span>
             <span>2026</span>
           </div>
 
+          {/* Mobile service tags — compact */}
+          <div className="mb-4 flex flex-wrap gap-2 sm:hidden">
+            {["Websites", "WhatsApp Bots", "AI Agents"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-primary/15 bg-primary/[0.04] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-primary/50"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
           <h1
-            className="font-black leading-[0.82] tracking-[-0.075em] text-[27vw] sm:text-[23vw] md:text-[18vw] lg:text-[10vw] xl:text-[9vw]"
+            className="font-black leading-[0.85] tracking-[-0.06em] text-[18vw] sm:text-[23vw] md:text-[18vw] lg:text-[10vw] xl:text-[9vw]"
             style={{ color: "#E1E0CC" }}
           >
             <WordsPullUp text="Abiskar AI" showAsterisk />
           </h1>
 
-          <div className="mt-6 flex flex-col gap-5 lg:mt-8">
+          <div className="mt-5 flex flex-col gap-4 sm:mt-6 lg:mt-8">
             <motion.p
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-md text-sm leading-snug text-primary/70 sm:text-base md:text-lg"
+              className="max-w-md text-sm leading-relaxed text-primary/65 sm:text-base md:text-lg md:leading-snug"
             >
               We build professional websites, WhatsApp automation, and AI agents that help
               businesses get found, respond faster, and turn inquiries into real workflows.
@@ -175,7 +157,7 @@ export function PrismaHero() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="group inline-flex items-center gap-2 self-start rounded-full bg-primary py-1 pl-5 pr-1 text-sm font-bold text-black transition-all hover:gap-3 sm:text-base"
+              className="group inline-flex items-center gap-2 self-start rounded-full bg-primary py-1.5 pl-5 pr-1.5 text-sm font-bold text-black transition-all hover:gap-3 sm:text-base"
             >
               Book a strategy call
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black transition-transform group-hover:scale-110 sm:h-10 sm:w-10">

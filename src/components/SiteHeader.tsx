@@ -16,7 +16,6 @@ export function SiteHeader() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -29,35 +28,34 @@ export function SiteHeader() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="glass-header sticky top-0 z-[100]">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-[100] border-b border-primary/10 bg-[#050505]/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6">
         {/* Logo */}
-        <Link href="/" className="group relative z-[101] text-lg font-bold text-foreground" onClick={() => setIsMobileMenuOpen(false)}>
-          <motion.span
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <span className="text-primary-500 transition group-hover:text-primary-400">
-              Abis
-            </span>
-            karAI
-          </motion.span>
+        <Link
+          href="/"
+          className="group relative z-[101] flex items-center gap-2.5 text-primary"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/25 font-mono text-[10px] font-bold">
+            AI
+          </div>
+          <span className="text-lg font-bold tracking-[-0.04em]">AbiskarAI</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="glass-nav hidden items-center gap-2 md:inline-flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-primary/10 bg-[#050505]/60 px-2 py-1.5 md:inline-flex">
           {navItems.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
-              className="glass-nav-item relative text-sm font-medium"
+              className="relative rounded-full px-4 py-2 text-sm font-medium text-primary/60 transition hover:text-primary"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               {item.label}
               {hoveredIndex === index && (
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-500"
+                  className="absolute inset-0 rounded-full bg-primary/[0.06]"
                   layoutId="navbar-indicator"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -70,18 +68,14 @@ export function SiteHeader() {
         </nav>
 
         {/* Desktop CTA */}
-        <motion.div 
-          className="hidden md:block"
-          whileHover={{ scale: 1.05 }} 
-          whileTap={{ scale: 0.95 }}
-        >
+        <div className="hidden md:block">
           <Link
             href="#contact"
-            className="glass-button rounded-md px-4 py-2 text-sm font-semibold text-white"
+            className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-black transition hover:bg-primary-100"
           >
             Hire Us
           </Link>
-        </motion.div>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -91,7 +85,7 @@ export function SiteHeader() {
         >
           {isMobileMenuOpen ? (
             <svg
-              className="h-8 w-8 text-foreground"
+              className="h-7 w-7 text-primary"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -101,9 +95,9 @@ export function SiteHeader() {
             </svg>
           ) : (
             <div className="flex flex-col gap-1.5">
-              <span className="h-0.5 w-6 bg-foreground" />
-              <span className="h-0.5 w-6 bg-foreground" />
-              <span className="h-0.5 w-6 bg-foreground" />
+              <span className="h-0.5 w-6 bg-primary" />
+              <span className="h-0.5 w-4 bg-primary/60" />
+              <span className="h-0.5 w-6 bg-primary" />
             </div>
           )}
         </button>
@@ -116,10 +110,10 @@ export function SiteHeader() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[99] bg-[#0a0a0f] md:hidden"
+              className="fixed inset-0 z-[99] bg-[#050505] md:hidden"
             >
               <div className="flex h-full flex-col items-center justify-center">
-                <nav className="flex flex-col items-center gap-12 text-center">
+                <nav className="flex flex-col items-center gap-10 text-center">
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.href}
@@ -130,7 +124,7 @@ export function SiteHeader() {
                     >
                       <Link
                         href={item.href}
-                        className="text-4xl font-bold text-white transition hover:text-primary-500"
+                        className="text-3xl font-bold text-primary transition hover:text-primary-500"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -148,7 +142,7 @@ export function SiteHeader() {
                 >
                   <Link
                     href="#contact"
-                    className="inline-flex items-center justify-center rounded-full bg-primary-500 px-20 py-4 text-lg font-bold text-white shadow-[0_0_30px_rgba(255,106,0,0.4)] transition hover:bg-primary-600 hover:shadow-[0_0_40px_rgba(255,106,0,0.6)]"
+                    className="inline-flex items-center justify-center rounded-full bg-primary px-16 py-4 text-lg font-bold text-black transition hover:bg-primary-100"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Hire Us
