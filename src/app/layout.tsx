@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -69,6 +70,7 @@ export default function RootLayout({
         <SmoothScroll />
         <ScrollProgress />
         <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
+          <SiteHeader />
           <div className="relative z-10 flex min-h-screen flex-col">
             {children}
           </div>
