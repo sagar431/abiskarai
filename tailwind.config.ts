@@ -10,6 +10,7 @@ const config: Config = {
         muted: "var(--color-muted)",
         surface: "var(--color-surface)",
         primary: {
+          DEFAULT: "var(--color-primary)",
           50: "var(--color-primary-50)",
           100: "var(--color-primary-100)",
           200: "var(--color-primary-200)",
@@ -42,7 +43,6 @@ const config: Config = {
 };
 
 export default config;
-
 
 
 

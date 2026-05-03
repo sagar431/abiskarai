@@ -7,9 +7,6 @@ import { Services } from "@/components/Services";
 import { Products } from "@/components/Products";
 import { TechMarquee } from "@/components/TechMarquee";
 import { Stats } from "@/components/Stats";
-import { ServiceSelector } from "@/components/ServiceSelector";
-import { Testimonials } from "@/components/Testimonials";
-import { FAQ } from "@/components/FAQ";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
@@ -19,10 +16,8 @@ export default function Home() {
       <main className="flex w-full flex-col">
         <Hero />
 
-        {/* Marquee strip */}
         <TechMarquee />
 
-        {/* Animated stat counters */}
         <ScrollReveal>
           <Stats />
         </ScrollReveal>
@@ -31,17 +26,8 @@ export default function Home() {
           <Services />
         </ScrollReveal>
 
-        {/* Interactive "what do you need?" */}
-        <ScrollReveal delay={0.05}>
-          <ServiceSelector />
-        </ScrollReveal>
-
         <ScrollReveal delay={0.1}>
           <Products />
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1}>
-          <Testimonials />
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
@@ -50,10 +36,6 @@ export default function Home() {
 
         <ScrollReveal delay={0.1}>
           <Process />
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.1}>
-          <FAQ />
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>

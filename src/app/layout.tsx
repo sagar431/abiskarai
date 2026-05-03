@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { SiteHeader } from "@/components/SiteHeader";
-import { GlassBackground } from "@/components/GlassBackground";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { FloatingCTA } from "@/components/FloatingCTA";
-import { CursorTrail } from "@/components/CursorTrail";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -72,12 +68,8 @@ export default function RootLayout({
         />
         <SmoothScroll />
         <ScrollProgress />
-        <CursorTrail />
-        <FloatingCTA />
         <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
-          <GlassBackground />
-          <div className="relative z-10 flex min-h-screen flex-col gap-6">
-            <SiteHeader />
+          <div className="relative z-10 flex min-h-screen flex-col">
             {children}
           </div>
         </div>
