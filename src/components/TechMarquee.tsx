@@ -22,7 +22,7 @@ const track = [...items, ...items];
 
 export function TechMarquee() {
   return (
-    <div className="relative overflow-hidden border-y border-white/[0.05] py-4">
+    <div className="relative overflow-hidden border-y border-primary/10 py-4">
       {/* Fade edges */}
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent" />
@@ -31,9 +31,9 @@ export function TechMarquee() {
         {track.map((item, i) => (
           <span
             key={i}
-            className="flex shrink-0 items-center gap-2 text-sm font-medium text-white/30 transition-colors hover:text-white/60"
+            className="flex shrink-0 items-center gap-2 text-sm font-medium text-primary/30 transition-colors hover:text-primary/60"
           >
-            <span className="h-1 w-1 rounded-full bg-primary-500/60" />
+            <span className="h-1 w-1 rounded-full bg-primary/45" />
             {item.label}
           </span>
         ))}

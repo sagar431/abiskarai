@@ -8,6 +8,10 @@ export function SmoothScroll() {
   const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    // Skip smooth scroll on mobile — native iOS/Android momentum is better
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    if (isMobile) return;
+
     const lenis = new Lenis({
       duration: 0.65,
       easing: (t) => 1 - Math.pow(1 - t, 3.2),

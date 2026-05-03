@@ -192,7 +192,7 @@ export function ChatWidget() {
                 className={`flex flex-col ${message.role === "assistant" ? "items-start" : "items-end"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${message.role === "assistant" ? "border border-white/15 bg-white/8 text-foreground backdrop-blur-xl" : "glass-button font-medium"}`}
+                  className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${message.role === "assistant" ? "border border-primary/15 bg-primary/[0.08] text-foreground backdrop-blur-xl" : "glass-button font-medium"}`}
                   style={message.role === "assistant" ? { backdropFilter: 'blur(20px) saturate(150%)' } : {}}
                 >
                   {message.role === "assistant" ? (

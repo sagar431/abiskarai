@@ -1,29 +1,33 @@
 import { agency } from "@/data/agency";
-import { SectionHeading } from "./SectionHeading";
 
 export function Process() {
   return (
-    <section id="process" className="py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <SectionHeading
-          eyebrow="How We Work"
-          title="Our Process"
-          description="A clear, iterative approach from discovery to deployment."
-        />
+    <section id="process" className="px-3 py-20 sm:px-5 lg:px-7">
+      <div className="mx-auto grid max-w-7xl gap-12 text-primary lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <p className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-primary/45">
+            Process
+          </p>
+          <h2 className="max-w-xl text-5xl font-black leading-[0.95] tracking-[-0.07em] sm:text-7xl">
+            From idea to live system.
+          </h2>
+        </div>
 
-        <div className="mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
+        <div className="border-t border-primary/15 lg:col-span-7">
           {agency.process.map((phase) => (
             <article
               key={phase.step}
-              className="glass-card group space-y-5 rounded-[24px] border-l-[3px] border-primary-500/35 p-6 sm:p-8 transition-transform duration-500 hover:-translate-y-1 hover:border-primary-500/70"
+              className="grid gap-5 border-b border-primary/15 py-8 sm:grid-cols-[3rem_1fr]"
             >
-              <span className="text-sm font-mono text-primary-500">
-                {phase.step}
-              </span>
-              <h3 className="text-xl font-bold text-foreground">
-                {phase.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted">{phase.detail}</p>
+              <span className="font-mono text-sm text-primary/40">{phase.step}</span>
+              <div>
+                <h3 className="text-3xl font-black leading-none tracking-[-0.055em]">
+                  {phase.title}
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary/55">
+                  {phase.detail}
+                </p>
+              </div>
             </article>
           ))}
         </div>
@@ -31,5 +35,3 @@ export function Process() {
     </section>
   );
 }
-
-
