@@ -70,8 +70,8 @@ export default function RootLayout({
         <SmoothScroll />
         <ScrollProgress />
         <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
-          <SiteHeader />
           <div className="relative z-10 flex min-h-screen flex-col">
+            <SiteHeader />
             {children}
           </div>
         </div>
