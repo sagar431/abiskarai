@@ -106,19 +106,19 @@ export function CardsSlider() {
       <div className="absolute top-1/2 -translate-y-1/2 left-2 z-20 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
         <button
           onClick={() => scrollTo("left")}
-          className="h-12 w-12 rounded-full bg-[#11100d]/80 backdrop-blur-md border border-primary/15 shadow-lg flex items-center justify-center hover:bg-[#11100d] hover:scale-110 transition-all active:scale-95"
+          className="h-12 w-12 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all active:scale-95 dark:bg-slate-800/90 dark:border-slate-700 dark:hover:bg-slate-800"
           aria-label="Scroll left"
         >
-          <ChevronLeft className="w-6 h-6 text-primary" />
+          <ChevronLeft className="w-6 h-6 text-slate-700 dark:text-slate-200" />
         </button>
       </div>
       <div className="absolute top-1/2 -translate-y-1/2 right-2 z-20 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
         <button
           onClick={() => scrollTo("right")}
-          className="h-12 w-12 rounded-full bg-[#11100d]/80 backdrop-blur-md border border-primary/15 shadow-lg flex items-center justify-center hover:bg-[#11100d] hover:scale-110 transition-all active:scale-95"
+          className="h-12 w-12 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-center hover:bg-white hover:scale-110 transition-all active:scale-95 dark:bg-slate-800/90 dark:border-slate-700 dark:hover:bg-slate-800"
           aria-label="Scroll right"
         >
-          <ChevronRight className="w-6 h-6 text-primary" />
+          <ChevronRight className="w-6 h-6 text-slate-700 dark:text-slate-200" />
         </button>
       </div>
 
@@ -140,30 +140,29 @@ export function CardsSlider() {
               className="min-w-[320px] max-w-[320px] h-[420px]"
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
             >
-              <Card className="group relative h-full overflow-hidden rounded-[24px] border-primary/10 bg-[#11100d]/80 backdrop-blur-md transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5">
+              <Card className="group relative h-full overflow-hidden rounded-[20px] border-slate-100 bg-white shadow-sm transition-all duration-500 hover:border-slate-200 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-slate-700 dark:hover:shadow-2xl">
                 {/* Image Section */}
                 <div className="relative h-48 overflow-hidden">
                   <motion.img
                     src={card.image}
                     alt={card.title}
-                    className="h-full w-full object-cover saturate-[0.82] transition-transform duration-700 group-hover:scale-110 group-hover:saturate-100"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#11100d] via-[#11100d]/25 to-black/10 opacity-70 transition-opacity duration-300 group-hover:opacity-45" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_0%,rgba(225,224,204,0.18),transparent_35%)] mix-blend-screen" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30 dark:from-slate-900 dark:via-slate-900/20" />
                   <div className="absolute top-4 left-4">
                     <Badge
                       variant="secondary"
-                      className="bg-[#11100d]/50 backdrop-blur-md border-primary/10 text-xs font-medium px-3 py-1 text-primary/80"
+                      className="bg-white/80 backdrop-blur-md border-slate-200 text-xs font-medium px-3 py-1 text-slate-700 dark:bg-slate-800/80 dark:border-slate-700 dark:text-slate-200"
                     >
                       {card.category}
                     </Badge>
                   </div>
                   {/* Hover Overlay Action */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white/30 backdrop-blur-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:bg-black/30">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-2 rounded-full bg-primary/90 px-5 py-2 text-sm font-semibold text-black shadow-lg"
+                      className="flex items-center gap-2 rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-lg dark:bg-white dark:text-black"
                     >
                       View Details
                     </motion.button>
@@ -173,29 +172,29 @@ export function CardsSlider() {
                 {/* Content Section */}
                 <div className="p-6 flex flex-col h-[calc(100%-12rem)] justify-between">
                   <div className="space-y-3">
-                    <h3 className="text-xl font-bold leading-tight tracking-tight text-primary transition-colors group-hover:text-primary-500">
+                    <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-900 transition-colors group-hover:text-slate-700 dark:text-white dark:group-hover:text-slate-200">
                       {card.title}
                     </h3>
-                    <p className="line-clamp-3 text-sm text-primary/50 leading-relaxed">
+                    <p className="line-clamp-3 text-sm text-slate-500 leading-relaxed dark:text-slate-400">
                       {card.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-auto border-t border-primary/10 flex items-center justify-between">
+                  <div className="pt-4 mt-auto border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/15 bg-primary/[0.06] font-mono text-[10px] font-bold text-primary/70">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 font-mono text-[10px] font-bold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                         AI
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs font-semibold text-primary">
+                        <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
                           {card.category}
                         </span>
-                        <span className="text-[10px] text-primary/40">
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500">
                           {card.date}
                         </span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-primary/40 bg-primary/[0.04] px-2.5 py-1 rounded-full">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-slate-400 bg-slate-50 px-2.5 py-1 rounded-full dark:bg-slate-800 dark:text-slate-400">
                       <Clock className="h-3 w-3" />
                       <span>{card.readTime}</span>
                     </div>

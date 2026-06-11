@@ -10,7 +10,7 @@ interface LinksGroupProps {
 function LinksGroup({ title, links }: LinksGroupProps) {
   return (
     <div className="p-2">
-      <h3 className="mt-2 mb-4 text-xs font-medium uppercase tracking-wider text-primary/60">
+      <h3 className="mt-2 mb-4 text-xs font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
         {title}
       </h3>
       <ul className="space-y-1.5">
@@ -18,7 +18,7 @@ function LinksGroup({ title, links }: LinksGroupProps) {
           <li key={link.title}>
             <a
               href={link.href}
-              className="text-xs text-primary/40 transition hover:text-primary"
+              className="text-xs text-slate-400 transition hover:text-slate-900 dark:text-slate-500 dark:hover:text-white"
             >
               {link.title}
             </a>
@@ -35,7 +35,7 @@ function SocialCard({ title, href }: { title: string; href: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-between border-t border-b border-primary/10 p-2 text-sm text-primary/70 transition hover:bg-primary/[0.04] hover:text-primary md:border-t-0"
+      className="flex items-center justify-between border-t border-b border-slate-100 p-2 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:bg-slate-800/50 dark:hover:text-white md:border-t-0"
     >
       <span className="font-medium">{title}</span>
       <ArrowRight className="h-4 w-4 transition-colors" />
@@ -47,12 +47,12 @@ export function Footer({ className }: { className?: string }) {
   return (
     <footer
       className={cn(
-        "border-t border-primary/10 bg-[radial-gradient(35%_128px_at_50%_0%,rgba(225,224,204,0.04),transparent)]",
+        "border-t border-slate-100 bg-white dark:border-slate-800 dark:bg-[#0a0a0a]",
         className
       )}
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative grid grid-cols-1 border-x border-primary/10 sm:grid-cols-2 sm:divide-x sm:divide-primary/10 md:grid-cols-4 md:divide-x md:divide-primary/10">
+        <div className="relative grid grid-cols-1 border-x border-slate-100 dark:border-slate-800 sm:grid-cols-2 sm:divide-x sm:divide-slate-100 dark:sm:divide-slate-800 md:grid-cols-4 md:divide-x md:divide-slate-100 dark:md:divide-slate-800">
           <div>
             <SocialCard title="GitHub" href="https://github.com/sagar431" />
             <LinksGroup
@@ -110,8 +110,8 @@ export function Footer({ className }: { className?: string }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-center border-t border-primary/10 p-3">
-        <p className="text-xs text-primary/40">
+      <div className="flex justify-center border-t border-slate-100 p-3 dark:border-slate-800">
+        <p className="text-xs text-slate-400 dark:text-slate-500">
           © {new Date().getFullYear()} AbiskarAI. All rights reserved.
         </p>
       </div>

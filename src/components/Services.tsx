@@ -19,14 +19,14 @@ function GlowingServiceCard({
       <div
         className={`glow-card flex min-h-[390px] flex-col justify-between p-8 ${
           isFeature
-            ? "bg-primary text-black"
-            : "bg-[#11100d] text-primary"
+            ? "bg-slate-900 text-white"
+            : "bg-white text-slate-900 border border-slate-100 dark:bg-slate-900/50 dark:text-white dark:border-slate-800"
         }`}
       >
         <div className="glow-ray" />
         <p
           className={`relative z-10 font-mono text-xs uppercase tracking-[0.12em] ${
-            isFeature ? "text-black/55" : "text-primary/45"
+            isFeature ? "text-white/55" : "text-slate-400 dark:text-slate-500"
           }`}
         >
           {String(index + 1).padStart(2, "0")} / {labels[index]}
@@ -37,7 +37,7 @@ function GlowingServiceCard({
           </h3>
           <p
             className={`mt-6 text-base leading-relaxed ${
-              isFeature ? "text-black/65" : "text-primary/60"
+              isFeature ? "text-white/65" : "text-slate-500 dark:text-slate-400"
             }`}
           >
             {service.description}
@@ -57,10 +57,10 @@ export function Services() {
     <section id="services" className="px-3 py-20 sm:px-5 lg:px-7">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-4xl">
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-primary/45">
+          <p className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-slate-400 dark:text-slate-500">
             Services / Systems
           </p>
-          <h2 className="text-5xl font-black leading-[0.95] tracking-[-0.07em] text-primary sm:text-7xl lg:text-8xl">
+          <h2 className="text-5xl font-black leading-[0.95] tracking-[-0.07em] text-slate-900 dark:text-white sm:text-7xl lg:text-8xl">
             Three pieces, designed as one business presence.
           </h2>
         </div>

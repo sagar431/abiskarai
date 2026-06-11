@@ -1,1 +1,1 @@
-export { PrismaHero as Hero } from "@/components/ui/prisma-hero";
+export { default as Hero } from "@/components/ui/hero-section";
