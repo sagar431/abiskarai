@@ -27,24 +27,24 @@ export function FeatureCard({
       {...props}
     >
       <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full [mask-image:linear-gradient(white,transparent)]">
-        <div className="from-foreground/5 to-foreground/1 absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] opacity-100">
+        <div className="from-slate-100/50 to-slate-50/10 absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] opacity-100">
           <GridPattern
             width={20}
             height={20}
             x="-12"
             y="4"
             squares={p}
-            className="fill-foreground/5 stroke-foreground/25 absolute inset-0 h-full w-full mix-blend-overlay"
+            className="fill-slate-100 stroke-slate-200 dark:fill-slate-800 dark:stroke-slate-700 absolute inset-0 h-full w-full mix-blend-overlay"
           />
         </div>
       </div>
       <feature.icon
-        className="text-foreground/75 size-6"
+        className="text-slate-600 dark:text-slate-400 size-6"
         strokeWidth={1}
         aria-hidden
       />
-      <h3 className="mt-10 text-sm md:text-base">{feature.title}</h3>
-      <p className="text-muted-foreground relative z-20 mt-2 text-xs font-light">
+      <h3 className="mt-10 text-sm md:text-base text-slate-900 dark:text-white">{feature.title}</h3>
+      <p className="text-slate-500 dark:text-slate-400 relative z-20 mt-2 text-xs font-light">
         {feature.description}
       </p>
     </div>
@@ -105,8 +105,6 @@ function GridPattern({
   );
 }
 
-// Deterministic patterns to avoid SSR/client hydration mismatch
-// (Math.random() produces different values on server vs client)
 const PATTERNS: number[][][] = [
   [[8, 2], [9, 4], [7, 1], [10, 5], [8, 3]],
   [[9, 1], [7, 3], [10, 2], [8, 5], [9, 4]],
@@ -160,14 +158,14 @@ export function ProjectFeatureCard({
     >
       {/* Grid pattern background */}
       <div className="pointer-events-none absolute top-0 left-1/2 -mt-2 -ml-20 h-full w-full [mask-image:linear-gradient(white,transparent)]">
-        <div className="from-primary/5 to-primary/[0.01] absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] opacity-100">
+        <div className="from-slate-100/50 to-slate-50/10 absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] opacity-100">
           <GridPattern
             width={20}
             height={20}
             x="-12"
             y="4"
             squares={p}
-            className="fill-primary/5 stroke-primary/15 absolute inset-0 h-full w-full mix-blend-overlay"
+            className="fill-slate-50 stroke-slate-200/60 dark:fill-slate-800/50 dark:stroke-slate-700/40 absolute inset-0 h-full w-full mix-blend-overlay"
           />
         </div>
       </div>
@@ -175,20 +173,20 @@ export function ProjectFeatureCard({
       {/* Index badge */}
       <div className="flex items-center justify-between mb-6">
         <feature.icon
-          className="text-primary/60 h-6 w-6"
+          className="text-slate-500 dark:text-slate-400 h-6 w-6"
           strokeWidth={1.5}
           aria-hidden
         />
-        <span className="font-mono text-xs text-primary/30">
+        <span className="font-mono text-xs text-slate-300 dark:text-slate-600">
           [{String(index + 1).padStart(2, "0")}]
         </span>
       </div>
 
       {/* Title & tagline */}
-      <h3 className="relative z-10 text-lg font-bold text-primary sm:text-xl">
+      <h3 className="relative z-10 text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
         {feature.title}
       </h3>
-      <p className="relative z-10 mt-1 text-sm text-primary-500">
+      <p className="relative z-10 mt-1 text-sm text-slate-500 dark:text-slate-400">
         {feature.tagline}
       </p>
 
@@ -196,8 +194,8 @@ export function ProjectFeatureCard({
       <div className="relative z-10 mt-5 space-y-2">
         {feature.metrics.map((m) => (
           <div key={m.label} className="flex items-baseline justify-between gap-2">
-            <span className="text-xs text-primary/40">{m.label}</span>
-            <span className="text-sm font-semibold text-primary">{m.value}</span>
+            <span className="text-xs text-slate-400 dark:text-slate-500">{m.label}</span>
+            <span className="text-sm font-semibold text-slate-900 dark:text-white">{m.value}</span>
           </div>
         ))}
       </div>
@@ -207,13 +205,13 @@ export function ProjectFeatureCard({
         {feature.techStack.slice(0, 4).map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-primary/10 bg-primary/[0.04] px-2 py-0.5 text-[10px] text-primary/50"
+            className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400"
           >
             {tech}
           </span>
         ))}
         {feature.techStack.length > 4 && (
-          <span className="rounded-full border border-primary/10 bg-primary/[0.04] px-2 py-0.5 text-[10px] text-primary/50">
+          <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] text-slate-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
             +{feature.techStack.length - 4}
           </span>
         )}
@@ -228,7 +226,7 @@ export function ProjectFeatureCard({
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-primary/60 transition hover:text-primary"
+              className="text-xs font-medium text-slate-500 transition hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
             >
               {link.label} ↗
             </a>

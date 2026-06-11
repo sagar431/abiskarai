@@ -46,7 +46,6 @@ export function ChatWidget() {
 
   const canSend = input.trim().length > 0 && !isLoading;
 
-  // Load messages from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem("abiskar_chat_history");
     if (saved) {
@@ -59,21 +58,18 @@ export function ChatWidget() {
     setIsInitialized(true);
   }, []);
 
-  // Save messages to localStorage whenever they change
   useEffect(() => {
     if (isInitialized) {
       localStorage.setItem("abiskar_chat_history", JSON.stringify(messages));
     }
   }, [messages, isInitialized]);
 
-  // Auto-scroll to bottom when messages change
   useEffect(() => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen]);
 
-  // Auto-resize textarea as user types
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
@@ -81,7 +77,6 @@ export function ChatWidget() {
     }
   }, [input]);
 
-  // Auto-focus textarea when chat opens
   useEffect(() => {
     if (isOpen && textareaRef.current) {
       setTimeout(() => {
@@ -107,7 +102,6 @@ export function ChatWidget() {
     setInput("");
     setIsLoading(true);
 
-    // Reset height
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
     }
@@ -153,32 +147,28 @@ export function ChatWidget() {
     localStorage.removeItem("abiskar_chat_history");
   }
 
-  // Only render content after hydration to avoid mismatch if using localStorage
-  // effectively we show default state first or wait. 
-  // Actually, it's better to show something. The useEffect handles the update.
-
   return (
     <div className="fixed bottom-4 right-4 z-[90] sm:bottom-6 sm:right-6">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="glass-button flex h-12 w-12 items-center justify-center rounded-full text-base font-bold text-black shadow-lg shadow-primary-500/30 hover:scale-105 sm:h-14 sm:w-14"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-base font-bold text-white shadow-lg shadow-slate-900/20 transition hover:scale-105 hover:bg-black dark:bg-white dark:text-black dark:shadow-white/10 dark:hover:bg-slate-100 sm:h-14 sm:w-14"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? "✕" : "AI"}
       </button>
 
       {isOpen ? (
-        <div className="glass-card mt-4 flex h-[500px] w-[calc(100vw-3rem)] max-w-[380px] flex-col overflow-hidden rounded-2xl shadow-2xl sm:w-[380px]">
-          <header className="flex items-center justify-between border-b border-white/20 px-5 py-4">
+        <div className="mt-4 flex h-[500px] w-[calc(100vw-3rem)] max-w-[380px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:w-[380px]">
+          <header className="flex items-center justify-between border-b border-slate-100 px-5 py-4 dark:border-slate-800">
             <div>
-              <p className="text-sm font-bold text-foreground">Ask AI</p>
-              <p className="text-xs text-muted">Powered by Gemini</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">Ask AI</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500">Powered by Gemini</p>
             </div>
             <button
               type="button"
               onClick={clearChat}
-              className="rounded px-2 py-1 text-xs font-medium text-muted transition hover:text-primary-500"
+              className="rounded px-2 py-1 text-xs font-medium text-slate-400 transition hover:text-slate-700 dark:text-slate-500 dark:hover:text-white"
               title="Clear conversation"
             >
               Clear
@@ -192,15 +182,18 @@ export function ChatWidget() {
                 className={`flex flex-col ${message.role === "assistant" ? "items-start" : "items-end"}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${message.role === "assistant" ? "border border-primary/15 bg-primary/[0.08] text-foreground backdrop-blur-xl" : "glass-button font-medium"}`}
-                  style={message.role === "assistant" ? { backdropFilter: 'blur(20px) saturate(150%)' } : {}}
+                  className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-relaxed ${
+                    message.role === "assistant"
+                      ? "border border-slate-100 bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-800/50 dark:text-slate-200"
+                      : "bg-slate-900 text-white font-medium dark:bg-white dark:text-black"
+                  }`}
                 >
                   {message.role === "assistant" ? (
                     <div className="markdown-content space-y-2">
                       <ReactMarkdown
                         components={{
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          a: ({ ...props }: any) => <a {...props} className="text-primary-300 hover:underline underline-offset-2" target="_blank" rel="noopener noreferrer" />,
+                          a: ({ ...props }: any) => <a {...props} className="text-blue-600 hover:underline underline-offset-2 dark:text-blue-400" target="_blank" rel="noopener noreferrer" />,
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           ul: ({ ...props }: any) => <ul {...props} className="list-disc pl-4 space-y-1" />,
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -208,7 +201,7 @@ export function ChatWidget() {
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           p: ({ ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
                           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                          code: ({ ...props }: any) => <code {...props} className="bg-white/10 rounded px-1 py-0.5 font-mono text-xs" />,
+                          code: ({ ...props }: any) => <code {...props} className="bg-slate-100 dark:bg-slate-700 rounded px-1 py-0.5 font-mono text-xs" />,
                         }}
                       >
                         {message.content}
@@ -218,18 +211,18 @@ export function ChatWidget() {
                     message.content
                   )}
                 </div>
-                <span className="mt-1.5 text-[10px] font-mono text-muted/50">
+                <span className="mt-1.5 text-[10px] font-mono text-slate-300 dark:text-slate-600">
                   {formatTime(message.timestamp)}
                 </span>
               </div>
             ))}
             {isLoading ? (
               <div className="flex justify-start">
-                <div className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-muted">
+                <div className="rounded-lg border border-slate-100 bg-slate-50 px-4 py-3 text-sm text-slate-400 dark:border-slate-800 dark:bg-slate-800/50">
                   <div className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500"></div>
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-500" style={{ animationDelay: '0.4s' }}></div>
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400"></div>
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-slate-400" style={{ animationDelay: '0.4s' }}></div>
                   </div>
                 </div>
               </div>
@@ -238,7 +231,7 @@ export function ChatWidget() {
           </div>
 
           <form
-            className="flex items-end gap-3 border-t border-white/10 px-5 py-4"
+            className="flex items-end gap-3 border-t border-slate-100 px-5 py-4 dark:border-slate-800"
             onSubmit={(event) => {
               event.preventDefault();
               handleSend();
@@ -250,13 +243,13 @@ export function ChatWidget() {
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask anything..."
-              className="min-h-[40px] max-h-[100px] flex-1 resize-none rounded-md border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-foreground placeholder:text-muted/60 focus:border-primary-500/50 focus:outline-none focus:ring-1 focus:ring-primary-500/30"
+              className="min-h-[40px] max-h-[100px] flex-1 resize-none rounded-md border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-slate-400 focus:outline-none focus:ring-1 focus:ring-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-500 dark:focus:border-slate-600 dark:focus:ring-slate-600"
               rows={1}
             />
             <button
               type="submit"
               disabled={!canSend}
-              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primary-500 text-black font-bold transition hover:bg-primary-400 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-muted/40"
+              className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-slate-900 text-white font-bold transition hover:bg-black disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-300 dark:bg-white dark:text-black dark:hover:bg-slate-200 dark:disabled:bg-slate-800 dark:disabled:text-slate-600"
               aria-label="Send message"
             >
               ↑

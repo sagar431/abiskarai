@@ -67,7 +67,7 @@ export function Projects() {
 
         <AnimatedContainer
           delay={0.4}
-          className="mt-10 grid grid-cols-1 divide-x divide-y divide-dashed divide-primary/10 border border-dashed border-primary/10 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-10 grid grid-cols-1 divide-x divide-y divide-dashed divide-slate-100 border border-dashed border-slate-100 dark:divide-slate-800 dark:border-slate-800 sm:grid-cols-2 lg:grid-cols-4"
         >
           {featureProjects.map((feature, i) => (
             <ProjectFeatureCard key={i} feature={feature} index={i} />
